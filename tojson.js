@@ -3,16 +3,16 @@ var data = []
 
 var item = function(mdid, id, male){
     return {
-        "imgUrl": `${id}-x&1844&1063.jpg`,
+        "imgUrl": `${id}-y&980&1470.jpg`,
         "isX": false,
         "isY": true,
         "isClothes": true,
         "isBody": false,
         "isMale": !!male,
         "isFemale": !male,
-        "isHeader": false,
+        "isHeader": true,
         "isHandsFeet": false,
-        "mdId": mdid,
+        "mdId": `md${mdid}`,
         "selected": false
     }
 };
