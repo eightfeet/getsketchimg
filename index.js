@@ -47,18 +47,28 @@ var download = function (uploaddate, index) {
 //     });
 // }
 
-var baseUrl = 'http://www.ms211.com/zhaopian2/daishounv/20140402125.jpg';
+// var baseUrl = 'http://www.ms211.com/zhaopian2/daishounv/20140402125.jpg';
 
-for (let index = 0; index < 107; index++) {
-    var ind = index + 1;
-    if (ind < 10) {
-        ind = '0' + ind
+// for (let index = 0; index < 158; index++) {
+//     var ind = index + 1;
+//     if (ind < 10) {
+//         ind = '0' + ind
+//     }
+//     download('20140402', ind);
+// }
+
+var ind = 0;
+
+var loop = function() {
+    if (ind < 158) {
+        setTimeout(function(){
+            ind++;
+            download('20140402', ind < 10 ? `0${ind}` : ind);
+            loop();
+        }, 50);
     }
-    download('20140202', ind);
 }
-
-
-
+loop();
 // var textArr = text.split('');
 // var lengthText = textArr.length;
 // var ind = 0;
