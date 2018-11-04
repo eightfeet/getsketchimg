@@ -1,5 +1,10 @@
 // http://www.ms211.com/zhaopian/daishounv.htm
 //依赖模块
+
+var start = 167;
+var end = 178;
+var finder = '20140507';
+
 var fs = require('fs');
 var request = require("request");
 var cheerio = require("cheerio");
@@ -16,9 +21,9 @@ mkdirp(dir, function (err) {
 
 //下载方法
 var download = function (uploaddate, index) {
-    var baseUrl = `http://www.ms211.com/zhaopian2/daishounv/${uploaddate}${index}.jpg`;
+    var baseUrl = `http://www.ms211.com/zhaopian2/zuozinv/${uploaddate}${index}.jpg`;
     console.log('开始下载', baseUrl)
-    var write = fs.createWriteStream(dir + "/" + `${index}.jpg`);
+    var write = fs.createWriteStream(dir + "/" + `${uploaddate}${index}.jpg`);
     request
         .head(baseUrl, function (err, res, body) {
             if (!err && res.statusCode == 200) {
@@ -57,15 +62,14 @@ var download = function (uploaddate, index) {
 //     download('20140402', ind);
 // }
 
-var ind = 0;
-
+var ind = start;
 var loop = function() {
-    if (ind < 158) {
+    if (ind < end) {
         setTimeout(function(){
             ind++;
-            download('20140402', ind < 10 ? `0${ind}` : ind);
+            download(finder, ind < 10 ? `0${ind}` : ind);
             loop();
-        }, 50);
+        }, 5000);
     }
 }
 loop();

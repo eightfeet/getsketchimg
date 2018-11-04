@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "2json": "node ./tojson.js"
   },
   "author": "",
   "license": "ISC",
