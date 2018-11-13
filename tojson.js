@@ -6,9 +6,11 @@ var data = []
 // var mdid = 56;
 // var male = false;
 
-var start = 2316;
-var end = 2450;
-var mdid = 55;
+var arg = (process.argv[2] && process.argv[2].split('-')) || 1;
+var start = parseInt(arg[0], 10) || null;
+var end = parseInt(arg[1], 10) || null;
+var mdid = parseInt(arg[2], 10) || null;
+
 var male = true;
 
 var item = function(mdid, id, male){

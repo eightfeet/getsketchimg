@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "2json": "node ./tojson.js"
+    "2json": "node ./tojson.js",
+    "rename": "node ./renameImg.js",
+    "clear": "rm -rf ./renameimages/* && rm -rf ./modimage/* && rm -rf ./min/*"
   },
   "author": "",
   "license": "ISC",
