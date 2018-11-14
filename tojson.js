@@ -1,38 +1,49 @@
 var fs = require('fs');
 var data = []
 
-// var start = 2451;
-// var end = 2613;
-// var mdid = 56;
-// var male = false;
+var start = null;
+var end = null;
 
 var arg = (process.argv[2] && process.argv[2].split('-')) || 1;
-var start = parseInt(arg[0], 10) || null;
-var end = parseInt(arg[1], 10) || null;
-var mdid = parseInt(arg[2], 10) || null;
+var mdid = parseInt(arg[1], 10) || null;
 
-var male = true;
+var male = null;
+var isBody = true;
 
-var item = function(mdid, id, male){
+var fileDirectory = './renameimages';
+
+var item = function(isy, img){
     return {
-        "imgUrl": `${id}-y&980&1470.jpg`,
-        "isX": false,
-        "isY": true,
-        "isClothes": true,
-        "isBody": false,
-        "isMale": !!male,
-        "isFemale": !male,
+        "imgUrl": img,
+        "isX": !isy,
+        "isY": !!isy,
+        "isClothes": isBody !== true ? true : false,
+        "isBody": isBody === true ? true : false,
+        "isMale": false,
+        "isFemale": false,
         "isHeader": false,
         "isHandsFeet": false,
         "isHalf": false,
+        "isGroup": true,
         "mdId": `md${mdid}`,
         "selected": false
     }
 };
 
+var start = null;
+var end = null;
 
-for (let index = start; index <= end; index++) {
-    data.push(item(mdid, index, male));
+var files = fs.readdirSync(fileDirectory);
+
+for (var index = 0; index < files.length; index++) {
+    var element = files[index].split('.')[0].split('-')[1].split('&')[0];
+    if (index === 0) {
+        start = files[index].split('-')[0];
+    }
+    if (index === files.length - 1) {
+        end = files[index].split('-')[0];
+    }
+    data.push(item(element === 'y', files[index]));
 }
 
 fs.writeFileSync(`models${start}_${end}.json`, JSON.stringify(data));
