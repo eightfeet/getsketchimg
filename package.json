@@ -7,7 +7,10 @@
     "start": "node ./index.js",
     "2json": "node ./tojson.js",
     "rename": "node ./renameImg.js",
-    "clear": "rm -rf ./renameimages/* && rm -rf ./modimage/* && rm -rf ./min/*"
+    "clear": "rm -rf ./renameimages/* && rm -rf ./modimage/* && rm -rf ./min/*",
+    "copymin": "scp -r ./min/* ~/Documents/workspace/www/2018/sketch-2018/src/assets/models/small",
+    "copybig": "scp -r ./renameimages/* ~/Documents/workspace/www/2018/sketch-2018/src/assets/models/",
+    "copy": "yarn copymin & yarn copybig"
   },
   "author": "",
   "license": "ISC",
