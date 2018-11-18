@@ -13,14 +13,14 @@ if (fs.existsSync(fileDirectory)) {
   for (var i = 0; i < files.length; i++) {
     var fileName = files[i];
     (function(ind, fname){
-      getPixels(("images/"+fileName), function(err, pixels) {
+      getPixels(("images/"+fname), function(err, pixels) {
         if (err) {
           console.log(err);
           console.log("Bad image path");
-          console.log("images/"+fileName);
+          console.log("images/"+fname);
           return false;
         }
-        var type = fileName.substr(-4, 4);
+        var type = fname.substr(-4, 4);
         var newName = (start + ind + 1) + '-' + (pixels.shape[0] > pixels.shape[1] ? 'x&' : 'y&') + pixels.shape[0] + '&' + pixels.shape[1];
         newName = newName + type;
         (function(origin, Name){
