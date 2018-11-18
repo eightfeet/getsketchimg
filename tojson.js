@@ -8,7 +8,7 @@ var arg = (process.argv[2] && process.argv[2].split('-')) || 1;
 var mdid = parseInt(arg[0], 10) || null;
 
 var male = false;
-var isBody = true;
+var isBody = false;
 
 var fileDirectory = './renameimages';
 
