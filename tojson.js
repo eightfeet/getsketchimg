@@ -6,21 +6,21 @@ var end = null;
 
 var arg = (process.argv[2] && process.argv[2].split('-')) || 1;
 var mdid = parseInt(arg[0], 10) || null;
-
+console.log('mmmmmmm', mdid, parseInt(arg[0], 10));
 var male = false;
-var isBody = false;
+var isBody = true;
 
-var fileDirectory = './renameimages';
+var fileDirectory = `./renameimages/md${mdid}`;
 
 var item = function(isy, img){
     return {
-        "imgUrl": img,
+        "imgUrl": `md${mdid}/${img}`,
         "isX": !isy,
         "isY": !!isy,
         "isClothes": isBody !== true ? true : false,
         "isBody": isBody === true ? true : false,
-        "isMale": false,
-        "isFemale": true,
+        "isMale": !!male,
+        "isFemale": !male,
         "isHeader": false,
         "isHandsFeet": false,
         "isHalf": false,
@@ -54,9 +54,9 @@ for (var index = 0; index < files.length; index++) {
     data.push(item(element === 'y', files[index]));
 }
 
-fs.writeFileSync(`models${start}_${end}.json`, JSON.stringify(data));
+fs.writeFileSync(`models${mdid}.json`, JSON.stringify(data));
 
-fs.writeFileSync(`./../sketch-2018/src/data/models${start}_${end}.json`, JSON.stringify(data));
+fs.writeFileSync(`./../sketch-2018/src/data/models${mdid}.json`, JSON.stringify(data));
 
 
-console.log(`${male ? '男' : '女'}模特 models${start}_${end}.json is compiled`)
+console.log(`${male ? '男' : '女'}模特 models${mdid}.json is compiled`)
