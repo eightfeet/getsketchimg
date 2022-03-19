@@ -1,5 +1,6 @@
 // http://www.ms211.com/zhaopian/daishounv.htm
 //依赖模块
+// 爬虫模块暂时关闭
 
 var start = 167;
 var end = 178;

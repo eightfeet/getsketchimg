@@ -5,12 +5,13 @@ var start = null;
 var end = null;
 
 var arg = (process.argv[2] && process.argv[2].split('-')) || 1;
-var mdid = parseInt(arg[0], 10) || null;
-console.log('mmmmmmm', mdid, parseInt(arg[0], 10));
+var mdid = parseInt(arg[0].replace('md',''), 10) || null;
+
 var male = false;
 var isBody = true;
 
 var fileDirectory = `./renameimages/md${mdid}`;
+console.log('文件目录', mdid);
 
 var item = function(isy, img){
     return {
@@ -26,7 +27,9 @@ var item = function(isy, img){
         "isHalf": false,
         "isGroup": false,
         "mdId": `md${mdid}`,
-        "selected": false
+        "selected": false,
+        "isStill":false,
+        "from":"md3"
     }
 };
 
@@ -36,7 +39,7 @@ var end = null;
 var files = fs.readdirSync(fileDirectory);
 
 for (var index = 0; index < files.length; index++) {
-    console.log(555, files[index]);
+    console.log('写入', files[index]);
     if (files[index] === '.DS_Store') {
         continue;
     }
@@ -56,7 +59,7 @@ for (var index = 0; index < files.length; index++) {
 
 fs.writeFileSync(`models${mdid}.json`, JSON.stringify(data));
 
-fs.writeFileSync(`./../sketch-2018/src/data/models${mdid}.json`, JSON.stringify(data));
+// fs.writeFileSync(`./../sketch-2018/src/data/models${mdid}.json`, JSON.stringify(data));
 
 
 console.log(`${male ? '男' : '女'}模特 models${mdid}.json is compiled`)
