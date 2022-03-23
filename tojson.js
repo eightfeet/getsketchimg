@@ -8,7 +8,7 @@ var arg = (process.argv[2] && process.argv[2].split('-')) || 1;
 var mdid = parseInt(arg[0].replace('md',''), 10) || null;
 
 var male = false;
-var isBody = true;
+var isBody = false;
 
 var fileDirectory = `./renameimages/md${mdid}`;
 console.log('文件目录', mdid);
@@ -18,17 +18,18 @@ var item = function(isy, img){
         "imgUrl": `md${mdid}/${img}`,
         "isX": !isy,
         "isY": !!isy,
-        "isClothes": isBody !== true ? true : false,
-        "isBody": isBody === true ? true : false,
-        "isMale": !!male,
-        "isFemale": !male,
+        "isClothes": false,
+        "isBody": false,
+        "isMale": false,
+        "isFemale": false,
         "isHeader": false,
         "isHandsFeet": false,
         "isHalf": false,
         "isGroup": false,
         "mdId": `md${mdid}`,
         "selected": false,
-        "isStill":false,
+        "isStill": false,
+        "isStructure": true,
         "from":"md3"
     }
 };
