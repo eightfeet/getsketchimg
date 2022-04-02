@@ -19,6 +19,7 @@ const delDir = (path) => {
   let files = [];
   if (fs.existsSync(path)) {
     files = fs.readdirSync(path);
+    
     files.forEach((file, index) => {
       let curPath = path + "/" + file;
       //判断是否是文件夹
@@ -49,7 +50,7 @@ const init = async () => {
     var fileName = files[i];
     (function (ind, fname) {
       const firepath = "images" + subpath + '/' + fname;
-      if (fname.indexOf('.jpg') < 0 && fname.indexOf('.jpeg') < 0 && fname.indexOf('.png') < 0 && fname.indexOf('.gif')) {
+      if (fname.indexOf('.jpg') < 0 && fname.indexOf('.jpeg') < 0 && fname.indexOf('.png') < 0 && fname.indexOf('.gif') < 0 && fname.indexOf('.mp4') < 0) {
         console.log('非图片类型文件', firepath); return
       };
       
@@ -66,12 +67,21 @@ const init = async () => {
         (function (origin, Name) {
           var newFilePath = newfileDirectory + "/" + Name;
           var originPath = fileDirectory + "/" + origin;
+          var vpath = newfileDirectory + "-v/" + newName.split('.')[0] + '.mp4'
+          var vopath = fileDirectory + "-v/" + fileSplit[0] + '.mp4'
           fs.copyFile(originPath, newFilePath, function (err) {
             if (err) {
               console.log(err);
             };
             console.log(Name + " ok~");
           });
+          fs.copyFile(vopath, vpath, function (err) {
+            if (err) {
+              console.log(err);
+            };
+            console.log(Name + " ok~");
+          });
+          
         })(fname, newName);
       })
 

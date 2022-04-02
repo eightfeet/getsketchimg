@@ -15,7 +15,7 @@ console.log('文件目录', mdid);
 
 var item = function(isy, img){
     return {
-        "imgUrl": `md${mdid}/${img}`,
+        "imgUrl": `md${mdid - 56}/${img}`,
         "isX": !isy,
         "isY": !!isy,
         "isClothes": false,
@@ -30,7 +30,7 @@ var item = function(isy, img){
         "selected": false,
         "isStill": false,
         "isStructure": true,
-        "from":"md3"
+        "from":"md4"
     }
 };
 
