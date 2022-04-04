@@ -67,20 +67,20 @@ const init = async () => {
         (function (origin, Name) {
           var newFilePath = newfileDirectory + "/" + Name;
           var originPath = fileDirectory + "/" + origin;
-          var vpath = newfileDirectory + "-v/" + newName.split('.')[0] + '.mp4'
-          var vopath = fileDirectory + "-v/" + fileSplit[0] + '.mp4'
+          // var vpath = newfileDirectory + "-v/" + newName.split('.')[0] + '.mp4'
+          // var vopath = fileDirectory + "-v/" + fileSplit[0] + '.mp4'
           fs.copyFile(originPath, newFilePath, function (err) {
             if (err) {
               console.log(err);
             };
             console.log(Name + " ok~");
           });
-          fs.copyFile(vopath, vpath, function (err) {
-            if (err) {
-              console.log(err);
-            };
-            console.log(Name + " ok~");
-          });
+          // fs.copyFile(vopath, vpath, function (err) {
+          //   if (err) {
+          //     console.log(err);
+          //   };
+          //   console.log(Name + " ok~");
+          // });
           
         })(fname, newName);
       })

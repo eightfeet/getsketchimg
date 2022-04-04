@@ -5,7 +5,7 @@ var start = null;
 var end = null;
 
 var arg = (process.argv[2] && process.argv[2].split('-')) || 1;
-var mdid = parseInt(arg[0].replace('md',''), 10) || null;
+var mdid = parseInt(arg[0].replace('md', ''), 10) || null;
 
 var male = false;
 var isBody = false;
@@ -13,25 +13,30 @@ var isBody = false;
 var fileDirectory = `./renameimages/md${mdid}`;
 console.log('文件目录', mdid);
 
-var item = function(isy, img){
-    return {
-        "imgUrl": `md${mdid - 56}/${img}`,
-        "isX": !isy,
-        "isY": !!isy,
-        "isClothes": false,
-        "isBody": false,
-        "isMale": false,
-        "isFemale": false,
-        "isHeader": false,
-        "isHandsFeet": false,
-        "isHalf": false,
-        "isGroup": false,
+var item = function (isy, img) {
+    const createItem = {
+        "imgUrl": `md${mdid}/${img}`,
         "mdId": `md${mdid}`,
-        "selected": false,
-        "isStill": false,
-        "isStructure": true,
-        "from":"md4"
+        "from": "md4",
+        "tags": [],
     }
+    createItem.tags.push(!!isy ? 'Y' : 'X');
+
+    createItem.tags = [
+        ...createItem.tags,
+        // 'Clothes', 
+        // 'Body', 
+        // 'Male', 
+        // 'Female', 
+        // 'Header', 
+        // 'HandsFeet', 
+        // 'Half', 
+        // 'Group', 
+        // 'Still', 
+        // 'Video', 
+        // 'Structure'
+    ];
+    return createItem
 };
 
 var start = null;
@@ -45,7 +50,7 @@ for (var index = 0; index < files.length; index++) {
         continue;
     }
     var element = files[index].split('.')[0].split('-')[1].split('&')[0];
-    
+
     if (index === 0) {
         start = files[index].split('-')[0];
     }
