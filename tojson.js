@@ -17,19 +17,19 @@ var item = function (isy, img) {
     const createItem = {
         "imgUrl": `md${mdid}/${img}`,
         "mdId": `md${mdid}`,
-        "from": "md4",
+        "from": "md5",
         "tags": [],
     }
     createItem.tags.push(!!isy ? 'Y' : 'X');
 
     createItem.tags = [
         ...createItem.tags,
-        // 'Clothes', 
+        'Clothes', 
         // 'Body', 
-        // 'Male', 
-        // 'Female', 
+        'Male', 
+        'Female', 
         // 'Header', 
-        // 'HandsFeet', 
+        'HandsFeet', 
         // 'Half', 
         // 'Group', 
         // 'Still', 
