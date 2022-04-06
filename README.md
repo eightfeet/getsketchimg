@@ -5,24 +5,20 @@
 2. npm run 2json md254
    转化为数据格式,注意手动定义相关参数
 
-   ```json
-    {
-        "imgUrl": `md${mdid}/${img}`,
-        "isX": !isy,
-        "isY": !!isy,
-        "isClothes": isBody !== true ? true : false,
-        "isBody": isBody === true ? true : false,
-        "isMale": !!male,
-        "isFemale": !male,
-        "isHeader": false,
-        "isHandsFeet": false,
-        "isHalf": false,
-        "isGroup": false,
-        "mdId": `md${mdid}`,
-        "selected": false,
-        "isStill":false,
-        "from":"md3"
-    }
+   ```javascript
+    [
+        'Clothes', 
+        // 'Body', 
+        'Male', 
+        'Female', 
+        // 'Header', 
+        'HandsFeet', 
+        // 'Half', 
+        // 'Group', 
+        // 'Still', 
+        // 'Video', 
+        // 'Structure'
+    ]
    ```
 3. 将json转化为项目数据，
    1. 将图片上传到对应的`{"from":"md3"}`中，root/small/下放置缩略图；root/下放置原图
