@@ -24,17 +24,19 @@ var item = function (isy, img) {
 
     createItem.tags = [
         ...createItem.tags,
-        'Clothes', 
+        // 'Clothes',
         // 'Body', 
-        'Male', 
-        'Female', 
-        // 'Header', 
-        'HandsFeet', 
-        // 'Half', 
-        // 'Group', 
-        // 'Still', 
-        // 'Video', 
-        // 'Structure'
+        // 'Male',
+        // 'Female',
+        'Cartoon', // 卡通
+        'LineDrawing', // 线描
+        // 'Header', // 肖像
+        // 'HandsFeet', // 手、脚
+        // 'Half', // 半身
+        // 'Group', // 组合
+        // 'Still', // 静物
+        // 'Video', // 视频
+        // 'Structure' // 结构
     ];
     return createItem
 };
