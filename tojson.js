@@ -25,11 +25,11 @@ var item = function (isy, img) {
     createItem.tags = [
         ...createItem.tags,
         // 'Clothes',
-        // 'Body', 
+        'Body', 
         // 'Male',
-        // 'Female',
-        'Cartoon', // 卡通
-        'LineDrawing', // 线描
+        'Female',
+        // 'Cartoon', // 卡通
+        // 'LineDrawing', // 线描
         // 'Header', // 肖像
         // 'HandsFeet', // 手、脚
         // 'Half', // 半身
