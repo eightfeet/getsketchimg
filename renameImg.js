@@ -50,7 +50,7 @@ const init = async () => {
     var fileName = files[i];
     (function (ind, fname) {
       const firepath = "images" + subpath + '/' + fname;
-      if (fname.indexOf('.jpg') < 0 && fname.indexOf('.jpeg') < 0 && fname.indexOf('.png') < 0 && fname.indexOf('.gif') < 0 && fname.indexOf('.mp4') < 0) {
+      if (fname.indexOf('.JPG') < 0 && fname.indexOf('.jpg') < 0 && fname.indexOf('.jpeg') < 0 && fname.indexOf('.png') < 0 && fname.indexOf('.gif') < 0 && fname.indexOf('.mp4') < 0) {
         console.log('非图片类型文件', firepath); return
       };
       

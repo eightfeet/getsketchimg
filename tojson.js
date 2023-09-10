@@ -26,8 +26,8 @@ var item = function (isy, img) {
         ...createItem.tags,
         // 'Clothes',
         'Body', 
-        // 'Male',
-        'Female',
+        'Male',
+        // 'Female',
         // 'Cartoon', // 卡通
         // 'LineDrawing', // 线描
         // 'Header', // 肖像
